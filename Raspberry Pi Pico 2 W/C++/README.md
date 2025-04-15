@@ -48,7 +48,7 @@ git clone https://github.com/jblanked/FlipperHTTP
 
 ### Setup
 
-1. Open the file `src/flipper-http.ino` in the Arduino IDE.
+1. Open the file `flipper-http/flipper-http.ino` in the Arduino IDE.
 2. Make desired modifications (or not).
 3. Plug the Pico 2 W into your computer.
 4. Under the `Select Board` dropdown, choose your serial port, then search for `Raspberry Pi Pico 2 W`, and select.
