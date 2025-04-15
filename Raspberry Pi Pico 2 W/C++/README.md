@@ -24,3 +24,41 @@ There are two installation methods. Choose whichever is the most convenient for 
 4. Drag and drop the downloaded file onto the device. It will automatically reboot and begin running the FlipperHTTP firmware.
 
 Here's a video tutorial: https://www.youtube.com/watch?v=rdzKDCjbZ4k
+
+## Raspberry Pi Pico 2 W Build Instructions (C++)
+
+  This is only if you want to build and/or modify the firmware for yourself, only recommended for experienced developers.
+
+### Prerequisites
+
+1. Download the [Arduino IDE](https://www.arduino.cc/en/software).
+2. Open the Arduino IDE, go to `File -> Preferences`, then put this link in the `Additional Boards Manager URLs` section:
+```
+https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+```
+3. Click `ok`, then click on the `Boards Manager`. (The second button down on the left sidebar).
+4. Search for `Pico`, then click install under `Raspberry Pi Pico/RP2040/RP2350`
+5. Now click on the `Library Manager` (One under the `Boards Manager` section), and search for `JSON`.
+6. Click install under `ArduinoJson`, **NOT** `Arduino_JSON`.
+7. Clone the github repository using:
+```
+git clone https://github.com/jblanked/FlipperHTTP
+```
+8. Rename the `src` folder to `flipper-http`.
+
+### Setup
+
+1. Open the file `src/flipper-http.ino` in the Arduino IDE.
+2. Make desired modifications (or not).
+3. Plug the Pico 2 W into your computer.
+4. Under the `Select Board` dropdown, choose your serial port, then search for `Raspberry Pi Pico 2 W`, and select.
+5. Now go to `Tools -> Flash Size`, and select the option that says `4MB (Sketch: 4032KB, FS: 64KB)`
+6. Now open the boards.h file, and uncomment this line (remove the `//`):
+```
+16: // #define BOARD_PICO_2W 7      // Raspberry Pi Pico 2W          Raspberry Pi Pico/RP2040/RP2350 by Earl Philhower
+```
+
+### Compilation
+
+1. Click the right facing arrow in the top left corner, to compile and upload.
+2. That's it! The compilation might take a minute, especially your first time. The onboard LED should hopefully flash three times when a successful upload has occured.
